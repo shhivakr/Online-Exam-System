@@ -1,0 +1,9 @@
+.git
+.m2
+target
+data
+uploads
+screenshots
+.idea
+.vscode
+*.iml
