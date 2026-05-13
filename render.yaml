@@ -2,16 +2,12 @@ services:
   - type: web
     name: online-exam-system
     runtime: docker
-    plan: starter
+    plan: free
     dockerfilePath: ./Dockerfile
     dockerContext: .
-    disk:
-      name: online-exam-data
-      mountPath: /var/data
-      sizeGB: 1
     envVars:
       - key: SPRING_DATASOURCE_URL
-        value: jdbc:h2:file:/var/data/examdb
+        value: jdbc:h2:file:/tmp/examdb
       - key: SPRING_DATASOURCE_USERNAME
         value: sa
       - key: SPRING_DATASOURCE_PASSWORD
@@ -21,4 +17,4 @@ services:
       - key: SPRING_JPA_DATABASE_PLATFORM
         value: org.hibernate.dialect.H2Dialect
       - key: FILE_UPLOAD_DIR
-        value: /var/data/uploads
+        value: /tmp/uploads

@@ -1,6 +1,6 @@
 # Deployment
 
-This project is a Spring Boot and Thymeleaf application. Deploy the app itself on Render as a Docker web service. Vercel is only suitable here as an optional proxy/custom-domain layer that forwards traffic to Render.
+This project is a Spring Boot and Thymeleaf application. Deploy the app itself on Render as a free Docker web service. Vercel is only suitable here as an optional free proxy/custom-domain layer that forwards traffic to Render.
 
 ## Render
 
@@ -9,7 +9,9 @@ This project is a Spring Boot and Thymeleaf application. Deploy the app itself o
 3. Render will read `render.yaml` and build the included `Dockerfile`.
 4. Deploy the `online-exam-system` service.
 
-The Render blueprint uses an H2 file database and stores uploads on a persistent disk at `/var/data`. Render disks require a paid web service instance, so the blueprint uses the `starter` plan. For production, replace the datasource environment variables with a managed database connection.
+The Render blueprint uses the free web service plan with an H2 file database and uploads stored under `/tmp`. This keeps hosting free, but Render's free filesystem is ephemeral: uploaded files and database data can disappear after restarts, redeploys, or instance replacement.
+
+For permanent database and upload storage, you must add a persistent database or storage provider, which may not be fully free.
 
 ## Vercel Proxy
 
