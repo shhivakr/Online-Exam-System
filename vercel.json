@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "https://your-render-service.onrender.com/$1"
+      "destination": "https://online-exam-system-esgd.onrender.com/$1"
     }
   ]
 }
